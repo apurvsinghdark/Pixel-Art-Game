@@ -173,3 +173,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 320d3225b7a46ad48b644a44f575e177, type: 2}
+  effect: {fileID: 6505397406716392936, guid: 44375280343ea554ca158a6e3f0e1517, type: 3}

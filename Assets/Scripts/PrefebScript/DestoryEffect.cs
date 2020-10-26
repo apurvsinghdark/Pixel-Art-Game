@@ -7,6 +7,6 @@ public class DestoryEffect : MonoBehaviour
    public float time = 1;
 
    private void OnEnable(){
-       DestroyObject(this.gameObject,time);
+       Destroy(this.gameObject,time);
    }
 }
