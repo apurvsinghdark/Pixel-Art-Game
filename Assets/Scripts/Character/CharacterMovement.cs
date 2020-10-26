@@ -15,7 +15,7 @@ public class CharacterMovement : MonoBehaviour
    public bool IsGrounded {get; private set;}
 
    private SpriteRenderer spriteRenderer;
-   private CharacterAnimation character;
+   private PlayerAnimator character;
 
     private void Start() {
         spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
@@ -24,7 +24,7 @@ public class CharacterMovement : MonoBehaviour
         if(rayOrigin == null)
             rayOrigin.position = transform.position;
 
-        character = CharacterAnimation.instance;
+        character = PlayerAnimator.instance;
     }
 
    private void FixedUpdate() {
@@ -45,10 +45,12 @@ public class CharacterMovement : MonoBehaviour
         if (ray)
         {
             IsGrounded = true;
+            character.animator.SetBool("IsGround",true);
         }
         else
         {
             IsGrounded = false;
+            character.animator.SetBool("IsGround",false);
         }
     }
 
@@ -92,11 +94,11 @@ public class CharacterMovement : MonoBehaviour
 
    void Crouch()
    {
-       if (Input.GetKeyDown(KeyCode.C))
+       if (Input.GetKeyDown(KeyCode.S))
        {
            character.animator.SetBool("Crouch",true);
        }
-       else if (Input.GetKeyUp(KeyCode.C))
+       else if (Input.GetKeyUp(KeyCode.S))
        {
            character.animator.SetBool("Crouch",false);
        }

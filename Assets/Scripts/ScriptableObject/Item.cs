@@ -6,6 +6,7 @@ public class Item : ScriptableObject {
     public string name = "new item";
     public ItemId item;
     public bool powerUp;
+    public int value;
 
 }
 
