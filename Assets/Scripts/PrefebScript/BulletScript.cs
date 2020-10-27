@@ -1,18 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rigidbody;
+    public GameObject prefeb;
+    private void OnEnable() {
+        gameObject.GetComponent<Rigidbody2D>().velocity = transform.right * 7f;
 
-    [SerializeField] float bulletForce = 3f;
-
-    private void Start() {
-        rigidbody = GetComponent<Rigidbody2D>();
+        Invoke("DestroyBullet",2f);
     }
-    private void FixedUpdate() {
-        rigidbody.AddForce(Vector2.right * bulletForce, ForceMode2D.Impulse);
-        Destroy(this.gameObject, 1f);
+
+    void DestroyBullet()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable() {
+        CancelInvoke();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+            Instantiate(prefeb, transform.position, Quaternion.identity);
+            DestroyBullet();
+        }
     }
 }

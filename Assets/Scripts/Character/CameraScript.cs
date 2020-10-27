@@ -11,6 +11,9 @@ public class CameraScript : MonoBehaviour
 
     private void Start() {
         target = GameObject.FindObjectOfType<CharacterMovement>().transform;
+
+        if(!target)
+            return;
     }
 
     private void FixedUpdate() {

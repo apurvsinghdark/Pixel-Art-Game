@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9056845846210035093}
   - component: {fileID: 4327897659730972000}
-  - component: {fileID: 3911085073280092910}
-  - component: {fileID: 6120327674728773971}
-  - component: {fileID: 4620419184202113618}
+  - component: {fileID: -1033855607707404863}
+  - component: {fileID: 2889049797777234695}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -48,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15452743, y: -0.0140480995}
+  m_Offset: {x: -0.01641345, y: -0.0140480995}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -59,9 +58,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55983114, y: 0.35379505}
+  m_Size: {x: 0.2836032, y: 0.35379505}
   m_EdgeRadius: 0
---- !u!50 &3911085073280092910
+--- !u!50 &-1033855607707404863
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -82,21 +81,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6120327674728773971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 35053160869311720}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfcd837a6eea5e46b6b3e7a9cd5d648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 3911085073280092910}
-  bulletForce: 0.5
---- !u!114 &4620419184202113618
+--- !u!114 &2889049797777234695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,10 +90,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 35053160869311720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 640e547ed4a82aa45920eb4ccb32e57d, type: 3}
+  m_Script: {fileID: 11500000, guid: ddfcd837a6eea5e46b6b3e7a9cd5d648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 1
+  prefeb: {fileID: 6301250850698051726, guid: 43ae991ccaf87cc40b44448fb411b59d, type: 3}
 --- !u!1 &4414454361652001119
 GameObject:
   m_ObjectHideFlags: 0

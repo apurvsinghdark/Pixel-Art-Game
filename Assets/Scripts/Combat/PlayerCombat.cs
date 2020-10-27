@@ -1,36 +1,35 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [Tooltip("PreFeb For Bullet")][SerializeField] GameObject prefeb;
-    [SerializeField] Transform firepoint;
+   public float fireRate = 0.3f;
+   float nextFire = 1f;
+   ObjectPooler objectPooler;
+   [SerializeField] Transform gunPoint;
 
-     Rigidbody2D rigidbody;
+   private void Start() {
+       objectPooler = ObjectPooler.instance;
+   }
 
-    private void Start() {
-    }
     private void FixedUpdate() {
-        if(Input.GetButtonDown("Fire1"))
-            FireBullet();
+        if (fireRate == 0)
+        {
+            if(Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            } 
+        }
+        else
+        {
+            if (Input.GetButton("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Shoot ();
+            }
+        }
     }
-    
-    
-    [SerializeField] float bulletForce = 3f;
-
-    // private void Start() {
-    //     
-    // }
-    // private void FixedUpdate() {
-    //     Destroy(this.gameObject, 1f);
-    // }
-    private void FireBullet()
-    {
-        Instantiate(prefeb, firepoint.position, Quaternion.identity);
-        rigidbody = prefeb.GetComponent<Rigidbody2D>();
-        
-        rigidbody.AddForce(firepoint.right * bulletForce, ForceMode2D.Impulse);
-    }
+   void Shoot()
+   {
+       GameObject Bullets = objectPooler.SpawnFromPool("Bullet", gunPoint.position, transform.rotation);
+   }
 }

@@ -72,11 +72,13 @@ public class CharacterMovement : MonoBehaviour
         #region SpriteFlip at X-axis
         if ( x < 0)
         {
-            spriteRenderer.flipX = true;
+            // spriteRenderer.flipX = true;
+            transform.rotation = Quaternion.Euler(0, -180f, 0);
         }
         if(x > 0)
         {
-            spriteRenderer.flipX = false;
+            // spriteRenderer.flipX = false;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         #endregion
 
