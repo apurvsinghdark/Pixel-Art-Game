@@ -40,7 +40,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void GroundCheck()
     {
-        RaycastHit2D ray = Physics2D.Raycast(rayOrigin.position, Vector2.down, radius, layer);
+        RaycastHit2D ray = Physics2D.CircleCast(rayOrigin.position, radius, Vector2.down, 0, layer);
 
         if (ray)
         {
@@ -56,7 +56,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void OnDrawGizmos() {
        Gizmos.color = Color.red;
-       Gizmos.DrawRay(rayOrigin.position,Vector3.down * radius);
+       Gizmos.DrawWireSphere(rayOrigin.position, radius);
    }
 
    void Movement()

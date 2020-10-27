@@ -12,16 +12,18 @@ public class CameraScript : MonoBehaviour
     private void Start() {
         target = GameObject.FindObjectOfType<CharacterMovement>().transform;
 
-        if(!target)
-            return;
+        
     }
 
     private void FixedUpdate() {
+        if(!target)
+            return;
+
         FollowPlayer();
     }
 
     void FollowPlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothness * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothness);
     }
 }

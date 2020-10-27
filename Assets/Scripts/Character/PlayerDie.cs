@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDie : MonoBehaviour
 {
@@ -8,8 +7,15 @@ public class PlayerDie : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject);
             Instantiate(prefeb, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            //Invoke("OnDie", 1f);
         }
+    }
+
+    void OnDie()
+    {
+        Debug.Log("Reload Scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
