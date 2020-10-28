@@ -4,13 +4,14 @@ public class BulletScript : MonoBehaviour
 {
     public GameObject prefeb;
     private void OnEnable() {
-        gameObject.GetComponent<Rigidbody2D>().velocity = transform.right * 7f;
-
         Invoke("DestroyBullet",2f);
     }
 
     void DestroyBullet()
     {
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        gameObject.transform.position = Vector2.zero;
+        gameObject.transform.rotation = Quaternion.Euler(0,0,0);
         gameObject.SetActive(false);
     }
 

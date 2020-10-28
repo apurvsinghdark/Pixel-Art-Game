@@ -9,7 +9,7 @@ public class PlayerDie : MonoBehaviour
         {
             Instantiate(prefeb, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            //Invoke("OnDie", 1f);
+            Invoke("OnDie", 1f);
         }
     }
 

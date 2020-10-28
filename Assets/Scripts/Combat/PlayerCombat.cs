@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
    float nextFire = 1f;
    ObjectPooler objectPooler;
    [SerializeField] Transform gunPoint;
+   GameObject prefeb;
 
    private void Start() {
        objectPooler = ObjectPooler.instance;
@@ -30,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     }
    void Shoot()
    {
-       GameObject Bullets = objectPooler.SpawnFromPool("Bullet", gunPoint.position, transform.rotation);
+        prefeb = objectPooler.SpawnFromPool("Bullet", gunPoint.position, transform.rotation);
+        prefeb.GetComponent<Rigidbody2D>().velocity = transform.right * 7f;
    }
 }
