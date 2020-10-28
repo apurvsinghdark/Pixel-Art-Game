@@ -226,6 +226,21 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 218294105535655249, guid: f5e47553d0f1eb5428a5c1f05279dc5a,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 218294105535655250, guid: f5e47553d0f1eb5428a5c1f05279dc5a,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 555184550}
+    - target: {fileID: 218294105535655250, guid: f5e47553d0f1eb5428a5c1f05279dc5a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 218294105535655251, guid: f5e47553d0f1eb5428a5c1f05279dc5a,
         type: 3}
       propertyPath: m_LocalPosition.x
