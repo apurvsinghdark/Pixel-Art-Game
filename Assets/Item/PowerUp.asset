@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Power
   item: 1
   powerUp: 1
-  value: 0
+  value: 1

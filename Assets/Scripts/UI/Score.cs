@@ -5,9 +5,23 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField] private Text text;
+    #region  SINGLETON
+    public static Score instance;
+
+    private void Awake() {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+    #endregion
+    
+    [SerializeField] private Text diamondText;
+    public Text HealthText;
     private int scorePlus = 0;
+    private int healthUI = 3;
     private ItemPickUp[] itemPick;
+
 
     private void Start() {
         itemPick = GameObject.FindObjectsOfType<ItemPickUp>();
@@ -16,6 +30,8 @@ public class Score : MonoBehaviour
         {
             item.onPointIncrease += IncreacePoint;
         }
+        
+        PlayerDie.instance.OnHealthScore += IncreaceHealth;
     }
 
     public void IncreacePoint(Item item)
@@ -23,11 +39,12 @@ public class Score : MonoBehaviour
         if(item != null)
         {
             scorePlus += item.value;
-            text.text = "X " + scorePlus.ToString();
+            diamondText.text = "X " + scorePlus.ToString();
         }
-        else
-        {
-            print("No Item");
-        }
+    }
+    public void IncreaceHealth(int health)
+    {
+        healthUI = health;
+        HealthText.text = "X " + healthUI.ToString();
     }
 }

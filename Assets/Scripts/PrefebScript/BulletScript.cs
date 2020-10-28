@@ -20,7 +20,13 @@ public class BulletScript : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Player" )
+        {
+            PlayerDie.instance.GetDamage(1);
+            Instantiate(prefeb, transform.position, Quaternion.identity);
+            DestroyBullet();
+        }
+        if (other.gameObject.tag == "Enemy")
         {
             Destroy(other.gameObject);
             Instantiate(prefeb, transform.position, Quaternion.identity);

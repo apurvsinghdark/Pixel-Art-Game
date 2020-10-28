@@ -31,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
     }
    void Shoot()
    {
+        SoundManager.instance.FireSound();
         prefeb = objectPooler.SpawnFromPool("Bullet", gunPoint.position, transform.rotation);
         prefeb.GetComponent<Rigidbody2D>().velocity = transform.right * 7f;
    }
