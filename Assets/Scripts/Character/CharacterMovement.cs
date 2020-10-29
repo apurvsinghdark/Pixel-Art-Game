@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class CharacterMovement : MonoBehaviour
     }
 
    private void FixedUpdate() {
+       
+       if(EventSystem.current.IsPointerOverGameObject())
+            return;
+
        Movement();
        Jump();
        Crouch();
@@ -61,7 +66,8 @@ public class CharacterMovement : MonoBehaviour
 
    void Movement()
    {
-        float x = Input.GetAxisRaw("Horizontal");
+        // float x = Input.GetAxisRaw("Horizontal");
+        float x = SimpleInput.GetAxis("Horizotal");
 
         float xMove = x * speed * Time.deltaTime;
 

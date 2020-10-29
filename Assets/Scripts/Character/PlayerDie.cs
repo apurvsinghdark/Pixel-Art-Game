@@ -25,6 +25,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
     private void Start() {
         Health = maxHealth;
 
+        rb = GetComponent<Rigidbody2D>();
         itemPicks = FindObjectsOfType<ItemPickUp>();
         
         foreach(var items in itemPicks)
@@ -38,7 +39,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
         {
             //cameraFollow.CanFollow = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //SoundManager.instance.GameEndSound();
+            SoundManager.instance.DieSound();
             //GameplayController.instance.Restart();
         }
     }
@@ -46,7 +47,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Enemy")
         {
-            GetDamage(1);
+            GetDamage(3);
         }
     }
 

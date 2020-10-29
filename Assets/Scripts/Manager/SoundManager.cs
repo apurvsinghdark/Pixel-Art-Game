@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
-    [SerializeField]private AudioSource gameWin, gameEnd, coinSound, jumpSound, fireSound, playerDie, healthPick, clickSound;
+    [SerializeField]private AudioSource gameWin, coinSound, jumpSound, fireSound, playerDie, healthPick, clickSound;
 
     void Awake()
     {
@@ -18,9 +18,9 @@ public class SoundManager : MonoBehaviour
     {
         gameWin.Play();
     }
-    public void GameEndSound()
+    public void GameWinSound()
     {
-        gameEnd.Play();
+        gameWin.Play();
     }
     public void PickedUpCoin()
     {

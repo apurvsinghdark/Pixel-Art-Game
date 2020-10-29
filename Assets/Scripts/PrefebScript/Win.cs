@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class Win : MonoBehaviour
 {
     public GameObject WinUI;
+    public GameObject ActiveMembers;
+    public GameObject Player;
 
     public Text dText;
     public Text hText;
@@ -11,12 +13,15 @@ public class Win : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player")
         {
+            SoundManager.instance.GameWinSound();
             Invoke("WinOn",1);
         }
     }
 
     void WinOn()
     {
+        ActiveMembers.SetActive(false);
+        Player.SetActive(false);
         WinUI.SetActive(true);
 
         dText.text = "X " + Score.instance.scorePlus.ToString();
