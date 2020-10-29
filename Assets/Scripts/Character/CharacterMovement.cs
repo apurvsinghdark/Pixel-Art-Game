@@ -89,6 +89,7 @@ public class CharacterMovement : MonoBehaviour
    {
        if(Input.GetButtonDown("Jump") && IsGrounded)
        {
+           SoundManager.instance.JumpSound();
            character.animator.SetTrigger("Jump");
            rb.velocity = new Vector2(0, jumpSpeed);
        }

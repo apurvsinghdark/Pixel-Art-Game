@@ -34,7 +34,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
     {
         OnHealthScore((int)Health);
         
-        if(rb.velocity.sqrMagnitude > 60)
+        if(rb.velocity.sqrMagnitude > 90)
         {
             //cameraFollow.CanFollow = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -65,6 +65,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
             Score.instance.HealthText.text = "X " + 0;
             Destroy(gameObject);
             Instantiate(prefeb, transform.position, Quaternion.identity);
+            SoundManager.instance.DieSound();
             Invoke("OnDie", 1f);
         }
     }

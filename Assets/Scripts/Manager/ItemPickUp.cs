@@ -29,6 +29,7 @@ public class ItemPickUp : MonoBehaviour
                     OnhealthInc(item);
 
                 print("health inc");
+                SoundManager.instance.PickedUpHealth();
                 Destroy(this.gameObject);
                 Instantiate(effect, transform.position, Quaternion.identity);
             }

@@ -42,6 +42,7 @@ public class EagleShooting : MonoBehaviour
             timeBtwShots = startTimeBtwShots;
             prefeb = objectPooler.SpawnFromPool("Bullet", gunPos.position, transform.rotation);
             prefeb.GetComponent<Rigidbody2D>().velocity = transform.right * 7f;
+            SoundManager.instance.FireSound();
         }
         {
             timeBtwShots -= Time.deltaTime;
