@@ -29,6 +29,7 @@ public class FrogEnemy : Enemy
         {
             Debug.Log("name " + hit.transform.name);
             Jump();
+            FrogShooting.instance.Shoot();
         }else
         {
             EnemyAnimator.instance.animator.SetBool("Jump", false);

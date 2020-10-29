@@ -11,4 +11,12 @@ public class UiManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void OnBack()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void OnNext()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }

@@ -16,9 +16,11 @@ public class Score : MonoBehaviour
     }
     #endregion
     
-    [SerializeField] private Text diamondText;
+    // [SerializeField] private Text dText;
+    // [SerializeField] Text hText;
+    public Text diamondText;
     public Text HealthText;
-    private int scorePlus = 0;
+    public int scorePlus = 0;
     private int healthUI = 3;
     private ItemPickUp[] itemPick;
 
@@ -47,4 +49,12 @@ public class Score : MonoBehaviour
         healthUI = health;
         HealthText.text = "X " + healthUI.ToString();
     }
+
+
+    // private void OnEnable() {
+    //     dText.text = Score.instance.diamondText.text;
+    //     hText.text = Score.instance.HealthText.text;
+    //     // dText.text = "X " + Score.instance.diamondText.ToString();
+    //     // hText.text = "X " + Score.instance.HealthText.ToString();
+    // }
 }

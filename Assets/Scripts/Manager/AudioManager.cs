@@ -31,6 +31,8 @@ public class AudioManager : MonoBehaviour
 
             PlayerPrefs.SetFloat(BackGroundPref, backgroundFloat);
             PlayerPrefs.SetFloat(SoundEffectsPref, soundEffectsFloat);
+
+            firstPlayInt = 1;
         }
         else
         {

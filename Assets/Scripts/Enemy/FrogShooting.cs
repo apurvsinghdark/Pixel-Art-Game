@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EagleShooting : MonoBehaviour
+public class FrogShooting : MonoBehaviour
 {
-    public static EagleShooting instance;
+    public static FrogShooting instance;
 
     private void Awake() {
-        if(instance == null )
+        if (instance == null)
+        {
             instance = this;
+        }
     }
-
-    [Tooltip("Player Position")][SerializeField] Transform target;
+    //[Tooltip("Player Position")][SerializeField] Transform target;
     [Tooltip("Gun Position")][SerializeField] Transform gunPos;
 
     GameObject prefeb;
-    [SerializeField] ObjectPooler objectPooler;
+    ObjectPooler objectPooler;
 
     [SerializeField] float offset;
 
@@ -24,17 +25,15 @@ public class EagleShooting : MonoBehaviour
 
     private void Start() {
        objectPooler = ObjectPooler.instance;
-
-       target = GameObject.FindObjectOfType<CharacterMovement>().transform;
    }
     public void Shoot()
     {
-        if(!target)
-            return;
+        // if(!target)
+        //     return;
 
-        Vector2 distance = target.position - transform.position;
-        float rotZ = Mathf.Atan2(distance.y,distance.x) * Mathf.Rad2Deg;
-        transform.localRotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        // Vector2 distance = target.position - transform.position;
+        // float rotZ = Mathf.Atan2(distance.y,distance.x) * Mathf.Rad2Deg;
+        // transform.localRotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
 
         if(timeBtwShots <= 0)
