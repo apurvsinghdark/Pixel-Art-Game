@@ -9,6 +9,7 @@ public class EagleEnemy : Enemy
     Vector3 nextPosition;
 
     SpriteRenderer spriteRenderer;
+    EagleShooting eagleShooting;
 
     [SerializeField] float speed;
     
@@ -16,6 +17,7 @@ public class EagleEnemy : Enemy
     private void Start() {
         nextPosition = leftPosition.position;
         spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        eagleShooting = transform.GetChild(1).GetComponent<EagleShooting>();
     }
 
     private void Update() {
@@ -31,10 +33,7 @@ public class EagleEnemy : Enemy
         if(hit)
         {
             Debug.Log("name " + hit.transform.name);
-            EagleShooting.instance.Shoot();
-        }else
-        {
-            //EnemyAnimator.instance.animator.SetBool("Jump", false);
+            eagleShooting.Shoot();
         }
     }
 
@@ -43,13 +42,11 @@ public class EagleEnemy : Enemy
         if(transform.position == rightPosition.position)
         {
             nextPosition = leftPosition.position;
-            // transform.localRotation = Quaternion.Euler(0,0,0);
             spriteRenderer.flipX = false;
         }else
         if(transform.position == leftPosition.position)
         {
             nextPosition = rightPosition.position;
-            // transform.localRotation = Quaternion.Euler(0,-180,0);
             spriteRenderer.flipX = true;
         }
     

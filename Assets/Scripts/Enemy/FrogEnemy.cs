@@ -10,11 +10,15 @@ public class FrogEnemy : Enemy
     
     [SerializeField] Rigidbody2D rb;
     [SerializeField] Transform Player;
+    [SerializeField] EnemyAnimator enemyAnimator;
+    FrogShooting frogShooting;
 
     public bool IsGrounded {get; private set;}
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
+        enemyAnimator = GetComponent<EnemyAnimator>();
+        frogShooting = GetComponentInChildren<FrogShooting>();
         rayOrigin.position = transform.position;
         Player = FindObjectOfType<CharacterMovement>().transform;
     }
@@ -34,10 +38,10 @@ public class FrogEnemy : Enemy
         {
             Debug.Log("name " + hit.transform.name);
             Jump();
-            FrogShooting.instance.Shoot();
+            frogShooting.Shoot();
         }else
         {
-            EnemyAnimator.instance.animator.SetBool("Jump", false);
+            enemyAnimator.animator.SetBool("Jump", false);
         }
     }
 
@@ -46,7 +50,7 @@ public class FrogEnemy : Enemy
         if(IsGrounded)
         {
             rb.velocity = new Vector2(0, jumpSpeed);
-            EnemyAnimator.instance.animator.SetBool("Jump", true);
+            enemyAnimator.animator.SetBool("Jump", true);
         }
     }
 
@@ -57,12 +61,12 @@ public class FrogEnemy : Enemy
         if (ray)
         {
             IsGrounded = true;
-            EnemyAnimator.instance.animator.SetBool("IsGround",true);
+            enemyAnimator.animator.SetBool("IsGround",true);
         }
         else
         {
             IsGrounded = false;
-            EnemyAnimator.instance.animator.SetBool("IsGround",false);
+            enemyAnimator.animator.SetBool("IsGround",false);
         }
     }
 

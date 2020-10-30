@@ -38,10 +38,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
         
         if(rb.velocity.sqrMagnitude > 90)
         {
-            //cameraFollow.CanFollow = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            SoundManager.instance.DieSound();
-            //GameplayController.instance.Restart();
+            GetDamage(3);
         }
     }
     

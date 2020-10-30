@@ -7,6 +7,6 @@ public class CharacterAnimation : MonoBehaviour
     public Animator animator;
 
     public virtual void Start() {
-        animator = GetComponentInChildren<Animator>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 }

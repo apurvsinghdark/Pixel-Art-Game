@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class FrogShooting : MonoBehaviour
 {
-    public static FrogShooting instance;
-
-    private void Awake() {
-        if (instance == null)
-        {
-            instance = this;
-        }
-    }
-    //[Tooltip("Player Position")][SerializeField] Transform target;
     [Tooltip("Gun Position")][SerializeField] Transform gunPos;
 
     GameObject prefeb;

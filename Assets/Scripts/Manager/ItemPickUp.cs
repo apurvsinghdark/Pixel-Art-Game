@@ -18,7 +18,7 @@ public class ItemPickUp : MonoBehaviour
                 if(onPointIncrease != null)
                     onPointIncrease.Invoke(item);
                 
-                print("Diamond inc");
+                //print("Diamond inc");
                 SoundManager.instance.PickedUpCoin();
                 Destroy(this.gameObject);
                 Instantiate(effect, transform.position, Quaternion.identity);
@@ -28,7 +28,7 @@ public class ItemPickUp : MonoBehaviour
                 if(OnhealthInc != null)
                     OnhealthInc(item);
 
-                print("health inc");
+                //print("health inc");
                 SoundManager.instance.PickedUpHealth();
                 Destroy(this.gameObject);
                 Instantiate(effect, transform.position, Quaternion.identity);
