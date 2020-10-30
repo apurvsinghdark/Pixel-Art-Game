@@ -9,17 +9,22 @@ public class FrogEnemy : Enemy
     [Tooltip("Layer For GroundCheck")][SerializeField] LayerMask groundLayer;
     
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Transform Player;
 
     public bool IsGrounded {get; private set;}
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         rayOrigin.position = transform.position;
+        Player = FindObjectOfType<CharacterMovement>().transform;
     }
 
     private void Update() {
         Interaction();
         GroundCheck();
+        
+        if(Player != null)
+            Rotate();
     }
     protected override void Interaction()
     {
@@ -36,7 +41,7 @@ public class FrogEnemy : Enemy
         }
     }
 
-     private void Jump()
+    private void Jump()
     {
         if(IsGrounded)
         {
@@ -61,6 +66,19 @@ public class FrogEnemy : Enemy
         }
     }
 
+    private void Rotate()
+    {
+        float distance = transform.position.x - Player.position.x;
+
+        if (distance > 0)
+        {
+            transform.rotation = Quaternion.Euler(0,0,0);
+        }
+        else if (distance < 0)
+        {
+            transform.rotation = Quaternion.Euler(0,180,0);
+        }
+    }
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();

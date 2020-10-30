@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float smoothness = 0.5f;
+    //[SerializeField] float smoothness = 0.5f;
 
     [SerializeField] Vector3 offset;
 
@@ -24,6 +24,8 @@ public class CameraScript : MonoBehaviour
 
     void FollowPlayer()
     {
-        transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothness);
+        //transform.position = Vector3.Lerp(transform.position, target.position + offset, smoothness);
+
+        transform.position = new Vector3(target.position.x + offset.x, offset.y, -10f);
     }
 }

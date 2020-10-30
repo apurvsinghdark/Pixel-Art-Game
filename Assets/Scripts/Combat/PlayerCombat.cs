@@ -12,8 +12,8 @@ public class PlayerCombat : MonoBehaviour
        objectPooler = ObjectPooler.instance;
    }
 
-    private void FixedUpdate() {
-        if (fireRate == 0)
+    public void FixedUpdate() {
+        /*if (fireRate == 0)
         {
             if(Input.GetButtonDown("Fire1"))
             {
@@ -23,6 +23,21 @@ public class PlayerCombat : MonoBehaviour
         else
         {
             if (Input.GetButton("Fire1") && Time.time > nextFire)
+            {
+                nextFire = Time.time + fireRate;
+                Shoot ();
+            }
+        }*/
+    }
+
+    public void OnClickShoot() {
+        if (fireRate == 0)
+        {
+            Shoot(); 
+        }
+        else
+        {
+            if ( Time.time > nextFire)
             {
                 nextFire = Time.time + fireRate;
                 Shoot ();

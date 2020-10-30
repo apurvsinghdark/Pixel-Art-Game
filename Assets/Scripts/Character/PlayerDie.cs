@@ -33,7 +33,8 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
     }
     void Update()
     {
-        OnHealthScore((int)Health);
+        if(OnHealthScore != null)
+            OnHealthScore((int)Health);
         
         if(rb.velocity.sqrMagnitude > 90)
         {
@@ -51,11 +52,6 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
         }
     }
 
-    void OnDie()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void GetDamage(int damage)
     {
         Health -= damage;
@@ -67,7 +63,7 @@ public class PlayerDie : MonoBehaviour , IDamageHeal
             Destroy(gameObject);
             Instantiate(prefeb, transform.position, Quaternion.identity);
             SoundManager.instance.DieSound();
-            Invoke("OnDie", 1f);
+            GameManager.instance.Restart();
         }
     }
 

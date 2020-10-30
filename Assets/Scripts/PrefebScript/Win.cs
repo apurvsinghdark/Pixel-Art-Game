@@ -6,6 +6,7 @@ public class Win : MonoBehaviour
     public GameObject WinUI;
     public GameObject ActiveMembers;
     public GameObject Player;
+    public GameObject UI;
 
     public Text dText;
     public Text hText;
@@ -23,6 +24,7 @@ public class Win : MonoBehaviour
         ActiveMembers.SetActive(false);
         Player.SetActive(false);
         WinUI.SetActive(true);
+        UI.SetActive(false);
 
         dText.text = "X " + Score.instance.scorePlus.ToString();
         hText.text = "X " + PlayerDie.instance.Health;

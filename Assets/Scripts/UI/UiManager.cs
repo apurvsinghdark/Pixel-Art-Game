@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
+    public Animator transition;
+
     public void OnQuit()
     {
         Application.Quit();
@@ -17,6 +21,20 @@ public class UiManager : MonoBehaviour
     }
     public void OnNext()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadNext(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    private void LoadNextScene(int _buildIndex)
+    {
+        SceneManager.LoadScene(_buildIndex);
+    }
+
+    IEnumerator LoadNext(int buildIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        LoadNextScene(buildIndex);
     }
 }
